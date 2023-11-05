@@ -7,9 +7,11 @@ use Helper\HTTP;
 
 //current time
 $currentTime = date("Y-m-d H:i:s");
+session_start();
+$ad_name = isset($_SESSION["userInfo"]) ? $_SESSION["userInfo"]->username : "empty";
 
 $database = new StuRegisterForm(new MySQL());
-$result = $database->confirm($_GET["id"],$currentTime,"done");
+$result = $database->confirm($_GET["id"],$currentTime,"done",$ad_name);
 $database->changeShow($_GET["id"],3);
 
 session_start();

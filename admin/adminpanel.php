@@ -24,8 +24,6 @@ $allUsersData = $database-> userRoleIdAndRolesId();
     <!-- bs js link -->
     <script src="../bs/js/bootstrap.bundle.min.js" defer></script>
 
-    <!-- original css link -->
-    <link rel="stylesheet" href="style.css">
 
     <style>
         @media(max-width:780px){
@@ -95,31 +93,35 @@ $allUsersData = $database-> userRoleIdAndRolesId();
             <td class="hide-action-style">
                 <?php if($item->id != 1): ?>
 
-                <div class="btn-group">
-                    <button class="btn btn-outline-light dropdown btn-sm">
-                        <span class="dropdown-toggle" data-bs-toggle="dropdown">Role</span>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-light dropdown btn-sm">
+                            <span class="dropdown-toggle" data-bs-toggle="dropdown">Role</span>
 
-                        <div class="dropdown-menu">
-                            <a href="../_action//usermanagement/role_change.php?role=1&id=<?= $item->id ?>&rd=<?=$random?>" class="dropdown-item text-center">User</a>
+                            <div class="dropdown-menu">
+                                <a href="../_action//usermanagement/role_change.php?role=1&id=<?= $item->id ?>&rd=<?=$random?>" class="dropdown-item text-center">User</a>
 
-                            <a  href="../_action//usermanagement/role_change.php?role=3&id=<?= $item->id ?>&rd=<?=$random?>" class="dropdown-item text-center">Teacher</a>
+                                <a  href="../_action//usermanagement/role_change.php?role=3&id=<?= $item->id ?>&rd=<?=$random?>" class="dropdown-item text-center">Teacher</a>
 
-                            <a  href="../_action//usermanagement/role_change.php?role=4&id=<?= $item->id ?>&rd=<?=$random?>" class="dropdown-item text-center">Admin</a>
+                                <a  href="../_action//usermanagement/role_change.php?role=4&id=<?= $item->id ?>&rd=<?=$random?>" class="dropdown-item text-center">Admin</a>
 
-                            <a  href="../_action//usermanagement/role_change.php?role=5&id=<?= $item->id ?>&rd=<?=$random?>" class="dropdown-item text-center">Manager</a>
-                        </div>
-                    </button>
+                                <a  href="../_action//usermanagement/role_change.php?role=5&id=<?= $item->id ?>&rd=<?=$random?>" class="dropdown-item text-center">Manager</a>
+                            </div>
+                        </button>
 
-                    <?php if($item->ban == 1) :?>
-                        <a href="../_action/usermanagement/unban.php?id=<?=$item->id?>&rd=<?=$random?>" class="btn btn-outline-warning btn-sm">Banned</a>
-                        <?php else : ?>
-                        <a href="../_action/usermanagement/ban.php?id=<?=$item->id?>&rd=<?= $random ?>" class="btn btn-outline-success btn-sm">Active</a>
-                    <?php endif ?>
+                        <?php if($item->ban == 1) :?>
+                            <a href="../_action/usermanagement/unban.php?id=<?=$item->id?>&rd=<?=$random?>" class="btn btn-outline-warning btn-sm">Banned</a>
+                            <?php else : ?>
+                            <a href="../_action/usermanagement/ban.php?id=<?=$item->id?>&rd=<?= $random ?>" class="btn btn-outline-success btn-sm">Active</a>
+                        <?php endif ?>
 
-                    
-                    <a href="../_action/usermanagement/delete_User.php?id=<?= $item->id ?>&rd=<?= $random?>"  class="btn btn-outline-danger btn-sm">Delete</a>
-                </div>
+                        
+                        <a href="../_action/usermanagement/delete_User.php?id=<?= $item->id ?>&rd=<?= $random?>"  class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                    </div>
 
+                <?php endif ?>
+
+                <?php if($item->id == 1): ?>
+                    <a href="mainAdminEdit.php" class="btn btn-outline-warning btn-sm">Edit Admin</a>
                 <?php endif ?>
             </td>
         </tr>
@@ -132,4 +134,3 @@ $allUsersData = $database-> userRoleIdAndRolesId();
 
 </body>
 </html>
-<!-- လင်းကိုဘီလီယံနာဖြစ်ဖို့နားရက်မရှိ -->

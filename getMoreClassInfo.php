@@ -67,7 +67,7 @@ $random =  Auth::randomNumber();
 <!-- /showing class post information -->        
 
     <!-- footer -->
-    <div class="mt-5">
+    <div style="margin-top:300px;">
         <?php include("index_footer.php"); ?>
     </div>
     <!-- footer -->

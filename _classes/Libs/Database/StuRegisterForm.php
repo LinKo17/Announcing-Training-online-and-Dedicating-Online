@@ -77,12 +77,13 @@ class StuRegisterForm{
         ]);
     }
 
-    public function confirm($id,$date,$confirm){
-        $statement = $this->db->prepare("UPDATE class_registered_students SET registered_date_time=:registered_date_time,registered_done=:registered_done,updated_at=Now() WHERE id=:id");
+    public function confirm($id,$date,$confirm,$ad_name){
+        $statement = $this->db->prepare("UPDATE class_registered_students SET registered_date_time=:registered_date_time,registered_done=:registered_done,updated_at=Now(),ad_name=:ad_name WHERE id=:id");
         return $statement->execute([
             "id"=> $id,
             "registered_date_time" => $date,
-            "registered_done"=>$confirm
+            "registered_done"=>$confirm,
+            "ad_name"=>$ad_name
         ]);
     }
 
@@ -111,10 +112,11 @@ class StuRegisterForm{
         ]);
     }
     
-    public function rejectReason($r1,$r2,$r3,$r4,$r5,$r6,$r7,$ar,$stu_id){
-        $statement = $this->db->prepare("INSERT INTO reject_reasons (reason_1,reason_2,reason_3,reason_4,reason_5,reason_6,reason_7,ad_reason,stu_id,created_at,updated_at ) VALUES (:reason_1,:reason_2,:reason_3,:reason_4,:reason_5,:reason_6,:reason_7,:ad_reason,:stu_id,Now(),Now())");
+    public function rejectReason($r1,$r2,$r3,$r4,$r5,$r6,$r7,$ar,$stu_id,$ad_name){
+        $statement = $this->db->prepare("INSERT INTO reject_reasons (ad_name,reason_1,reason_2,reason_3,reason_4,reason_5,reason_6,reason_7,ad_reason,stu_id,created_at,updated_at ) VALUES (:ad_name,:reason_1,:reason_2,:reason_3,:reason_4,:reason_5,:reason_6,:reason_7,:ad_reason,:stu_id,Now(),Now())");
 
         return $statement->execute([
+            "ad_name" => $ad_name,
             "reason_1" => $r1,
             "reason_2" => $r2,
             "reason_3" => $r3,

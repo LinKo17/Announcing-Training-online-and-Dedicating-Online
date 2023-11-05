@@ -125,12 +125,7 @@ $data = $database->takeAboutUsData();
 
     <div class="card-header bg-primary text-light h5 text-center">About Us</div>
     <div class="card-body" style="text-indent:50px;">
-        <?php if($data->about_us == ""): ?>
-            <?= "Hellooo Learner" ?>
-        <?php else: ?>
-            <?= $data->about_us ?>
-        <?php endif ?>
-
+            <?= $data->about_us ?? "" ?>
     </div>
     </div>        
     </div>    

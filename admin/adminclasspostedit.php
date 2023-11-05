@@ -157,7 +157,6 @@ list($dbminute, $dbhours, $ampm) = explode('/', $timeString);
                         <?php foreach($teachers_data as $item): ?>
                         <option <?php echo $data->teacher_id ==  $item->id ? "selected" : "" ?> value="<?= $item->id?>">  
                         <?= $item->teacher_name?>
-                        (<span class="float-end"><?= $item->category_id ?></span>)
                         </option>
                         <?php endforeach ?>
                     </select>
@@ -189,7 +188,7 @@ list($dbminute, $dbhours, $ampm) = explode('/', $timeString);
     
                     <!-- ---------- -->
                     <select name="year" id="year">
-                     <?php for($i=2000; $i<=date("Y"); $i++): ?>
+                     <?php for($i=2000; $i<=2100; $i++): ?>
                         <option <?php echo $dbyear == $i ? "selected" : "" ?>  value="<?= $i?>"><?= $i?></option>
                         <?php endfor ?>
                         </select>

@@ -190,35 +190,15 @@ $fileOpen = $database->changeShow($_GET["id"],1);
         </tr>
         <tr>
             <th>Register verification code</th>
-            <td>
-                <?php if($rq_data->re_veri_code != "not yet"): ?>
-                    <span class="btn-style bg-warning"><?=$rq_data->re_veri_code ?? "" ?></span>
-                <?php endif ?>
-            </td>
+            <td></td>
         </tr>
         <tr>
             <th>Register Date</th>
-            <td>
-                <?php if($rq_data->ad_veri_code != "not yet"): ?>
-                    <?php if($rq_data->re_veri_code != "not yet"): ?>
-                        <?php if(trim($rq_data->ad_veri_code)  ==  trim($rq_data->re_veri_code) ): ?>
-                            <button class="btn btn-success"><?=$rq_data->registered_date_time ?? "" ?></button>
-                        <?php endif ?>
-                     <?php endif ?>   
-                <?php endif ?>
-            </td>
+            <td> </td>
         </tr>
         <tr>
             <th>Confirm</th>
-            <td>
-                <?php if($rq_data->ad_veri_code != "not yet"): ?>
-                    <?php if($rq_data->re_veri_code != "not yet"): ?>
-                        <?php if(trim($rq_data->ad_veri_code)  ==  trim($rq_data->re_veri_code) ): ?>
-                            <a href="../../_action/class_join_data/register_confirm_data.php?id=<?=$rq_data->id?>&&rd=<?=$random?>" class="btn btn-primary     confirm-btn-style">Confirm Register</a>
-                        <?php endif ?>
-                     <?php endif ?>   
-                <?php endif ?>
-            </td>
+            <td></td>
         </tr>
     </table>
 

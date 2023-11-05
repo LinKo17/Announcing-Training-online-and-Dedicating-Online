@@ -100,4 +100,19 @@ public function insertUserdata($data) {
         return $statement->fetchAll();
     }
 
+    public function takeSingleUserData($id){
+        $statement = $this->db->prepare("SELECT * FROM user_login WHERE id=:id");
+        $statement->execute([
+            "id"=>$id
+        ]);
+        return $statement->fetch();
+
+    }
+
+    public function mainAdminUpdate($data){
+        $statement = $this->db->prepare("UPDATE user_login SET username=:username,email=:email,password=:password,updated_at=Now() WHERE id=:id");
+        $data["password"] = password_hash($data['password'],PASSWORD_DEFAULT);
+        return $statement->execute($data);
+    }
+
 }

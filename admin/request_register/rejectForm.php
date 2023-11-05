@@ -70,6 +70,9 @@ if($_GET["rd"] != $_SESSION["checkRandomNumber"]){
             <div class="card-header bg-danger text-center text-light h5"> Rejection Reason</div>
     
             <div class="card-body">
+                <div class="my-2">
+                    <input type="hidden" class="form-control" name="admin_name" value="<?= isset($_SESSION["userInfo"]) ? $_SESSION["userInfo"]->username : "" ?>">
+                </div>
     
                 <div class="row my-0 main-style">
                     <div class="col-1 check-style">

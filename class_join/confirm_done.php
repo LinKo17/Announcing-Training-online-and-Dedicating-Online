@@ -135,7 +135,7 @@ if(!isset($_SESSION["loading"] )){
 
                 <div class="row">
                         <div class="col-6">
-                            <div class="my-1 fs-5">Admin name</div>
+                            <div class="my-1 fs-5"><?= $data->ad_name ?></div>
                         </div>
                         <div class="col-6">
                             <a href="../index.php" class="btn btn-primary float-end">Get</a>

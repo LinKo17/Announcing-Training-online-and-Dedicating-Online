@@ -48,7 +48,7 @@ Auth::checkUserRole();
     <div class="card-header bg-primary text-light h5 text-center">About Us</div>
     <div class="card-body">
     <form action="../../_action/contact_data/about_us_data.php" method="post">
-            <textarea  cols="30" rows="10" name="aboutus" class="form-control" placeholder="write about MyTechnology"  ><?= $data->about_us ?></textarea>
+            <textarea  cols="30" rows="10" name="aboutus" class="form-control" placeholder="write about MyTechnology"  ><?= $data->about_us ?? "" ?></textarea>
 
             <div class="mt-2">
                 <input type="radio" style="opacity:0">

@@ -89,7 +89,7 @@ Auth::checkUserRole();
         <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light btn btn-danger m-2" href="#" data-bs-toggle="dropdown">Contact</a>
                     <div class="dropdown-menu text-center">
-                      <a href="" class="dropdown-item">Social Media</a>
+                      <a href="social_media_link.php" class="dropdown-item">Social Media</a>
                       <a href="users_msg.php" class="dropdown-item text-center">Users Message</a>
                       <a href="about_us.php" class="dropdown-item text-center">About us</a>
                     </div>

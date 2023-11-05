@@ -155,70 +155,81 @@ $mediaLink = $mediaDatabase->mediaData();
     <div class="card-header bg-primary text-light h5 text-center">Content Us</div>
 
     <?php if(isset($_SESSION["userInfo"])) : ?>
-        <div class="card-body">
-            <form action="../_action/contact_data/insert_contact_data.php" method="post">
-                <div class="my-2">
-                <label for="content">Content</label>
-                <textarea type="text" class="mt-1 form-control" placeholder="Content" name="content" id="content" required></textarea>
-                </div>
 
-                <div class="my-2">
-                    <label for="gmail">Gmail</label>
-                    <input type="text" class="mt-1 form-control" placeholder="Gmail" name="gmail" id="gmail" required>
-                </div>
-
-                <div class="my-2">
-                    <input type="radio" style="opacity:0;">
-                    <div class="float-end">
-                            <button type="reset" class="btn btn-danger">Reset</button>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+        <?php if($_SESSION["userInfo"]->ban == 0):?>
+            <!-- header -->
+            <div class="card-body">
+                <form action="../_action/contact_data/insert_contact_data.php" method="post">
+                    <div class="my-2">
+                    <label for="content">Content</label>
+                    <textarea type="text" class="mt-1 form-control" placeholder="Content" name="content" id="content" required></textarea>
                     </div>
-                </div>
-            </form>
-        </div>
 
-        <div class="card-header" style="background-color:#003566";>
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="fs-edit d-inline-block">
-                    Following Social Media You Can Content Us
-                </div>                
+                    <div class="my-2">
+                        <label for="gmail">Gmail</label>
+                        <input type="text" class="mt-1 form-control" placeholder="Gmail" name="gmail" id="gmail" required>
+                    </div>
+
+                    <div class="my-2">
+                        <input type="radio" style="opacity:0;">
+                        <div class="float-end">
+                                <button type="reset" class="btn btn-danger">Reset</button>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-
-            <div class="col-lg-6 col-md-6 ">
-                
-                <a href=" <?= $mediaLink->telegram ?>">
-                    <div class="edit-icon d-inline-block float-end">
-                        <div class="icon-inner-edit">
-                            <i class="fa-brands fa-telegram f-size"></i>
-                        </div>
+            <!-- footer -->
+            <div class="card-header" style="background-color:#003566";>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="fs-edit d-inline-block">
+                            Following Social Media You Can Content Us
+                        </div>                
                     </div>
-                </a>
 
-                <a href=" <?= $mediaLink->viber ?>">
-                    <div class="edit-icon d-inline-block float-end">
-                        <div class="icon-inner-edit">
-                            <i class="fa-brands fa-viber f-size"></i>
-                        </div>
-                    </div>
-                </a>
-                
-
-                <a href="<?= $mediaLink->facebook ?>">
-                        <div class="edit-icon d-inline-block float-end">
-                            <div class="icon-inner-edit">
-                                <i class="fa-brands fa-facebook f-size "></i>
+                    <div class="col-lg-6 col-md-6 ">
+                        
+                        <a href=" <?= $mediaLink->telegram ?>">
+                            <div class="edit-icon d-inline-block float-end">
+                                <div class="icon-inner-edit">
+                                    <i class="fa-brands fa-telegram f-size"></i>
+                                </div>
                             </div>
-                        </div>
-                </a>
+                        </a>
+
+                        <a href=" <?= $mediaLink->viber ?>">
+                            <div class="edit-icon d-inline-block float-end">
+                                <div class="icon-inner-edit">
+                                    <i class="fa-brands fa-viber f-size"></i>
+                                </div>
+                            </div>
+                        </a>
+                        
+
+                        <a href="<?= $mediaLink->facebook ?>">
+                                <div class="edit-icon d-inline-block float-end">
+                                    <div class="icon-inner-edit">
+                                        <i class="fa-brands fa-facebook f-size "></i>
+                                    </div>
+                                </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div> 
+            <?php else : ?>
+            <div class="card-body text-center">
+                <span class="text-danger text-center fs-3">You have been Banned!!!</span>
+                <br>
+                <span class="text-center fs-6">Please wait for a time!!!</span>
+            </div>
+            
+        <?php endif ?>
 
 
     <?php else :?>
 
-
+        <!-- if there is no sign in it will show this -->
         <div class="card-body  text-center h4">
             You haven't Sign in or Sign Up yet!
 

@@ -2,6 +2,8 @@
 include("../vendor/autoload.php");
 use Helper\HTTP;
 use Helper\Auth;
+use Libs\Database\UsersContentTable;
+use Libs\Database\MySQL;
 
 
 session_start();
@@ -30,6 +32,10 @@ if(trim($ds) == "ho"){
 }
 
 unset($_SESSION["button__press"]);
+
+$database = new UsersContentTable(new MySQL());
+$media_data = $database->mediaData();
+// print_r($media_data);
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +71,13 @@ unset($_SESSION["button__press"]);
         .container-width{
             width:500px;
         }
+        ul li{
+            cursor: default;
+        }
+        ul li:hover{
+            background-color: black;
+            color:white;
+        }
         @media(max-width:500px){
             .container-width{
                 width:370px;
@@ -94,7 +107,12 @@ unset($_SESSION["button__press"]);
     </div>
 
     <!-- session section -->
-
+            <div class="container-container-width-my-2 text-center">
+                <div class="style-world">
+                    <span>* website အတွင်း အပ်နှံလျှင် သင်တန်း အပ်ပြီးစီးကြောင်း လက်မှတ်ရမှာသာအတည်ဖြစ်မည်။</span>
+                </div>
+        </div>
+            </div>
 
 
     <!-- join register form -->
@@ -183,6 +201,29 @@ unset($_SESSION["button__press"]);
 
         </div>
     <!-- join register form -->
+
+    <!-- phone number -->
+    <div class="container container-width my-4">
+        <ul class="list-group text-center">
+            <li class="list-group-item bg-primary text-light">သင်တန်းကြေး ကိုအောက်ပါဖုန်းနံပါတ်များတွင် လွှဲ  နိုင်သည်။</li>
+
+            <?php if(isset($media_data->phone_1)): ?>
+                <li class="list-group-item"><?= $media_data->phone_1 ?></li>
+            <?php endif ?>
+            
+            <?php if(isset($media_data->phone_2)): ?>
+                <li class="list-group-item"><?= $media_data->phone_2 ?></li>
+            <?php endif ?>
+
+            <?php if(isset($media_data->phone_3)): ?>
+                <li class="list-group-item"><?= $media_data->phone_3 ?></li>
+            <?php endif ?>
+
+        </ul>
+    </div>
+    <!-- phone number -->
+
+
 
     <!-- notice messages -->
   <div class="container my-3 container-width">

@@ -1,27 +1,3 @@
 * project  admin ပိုင်းတွင် အချိန် ဖြုတ်ရန်ကျန်။ (wait,not wait)
 
-
-    // public function insertUserdataTest($data) {
-    //     $statement  = $this->db->prepare("SELECT * FROM user_login WHERE username=:username");
-    //     $statement->execute([
-    //         "username" => $data["username"]
-    //     ]);
-    //     $checkArray = $statement->fetchAll();
-    
-    //     if (count($checkArray) > 0) { // Check if any rows were found
-    //         foreach ($checkArray as $item) {
-    //             if ($item->email == $data["email"]) {
-    //                 return false; // User with the same email exists
-    //             }
-    //         }
-    //     }
-    
-    //     // No matching user found, so insert the new user
-    //     $database = $this->db;
-    //     $query = $database->prepare("INSERT INTO user_login (username, email, password, created_at) 
-    //                                  VALUES (:username, :email, :password, NOW())");
-    
-    //     $data["password"] = password_hash($data['password'], PASSWORD_DEFAULT);
-    
-    //     return $query->execute($data);
-    // }
+* index.php ကို _action,admin,class_join,photos,teacherPhotos,user_pay_photo တွင် သာမန်လူ , normal register person ဝင်မရအောင်စစ်ဆေးထားသည်။
